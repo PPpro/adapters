@@ -17,7 +17,7 @@ window.boot = function () {
 
     };
     
-    var isSubContext = __globalAdatper.isSubContext;
+    var isSubContext = __globalAdapter.isSubContext;
 
     var option = {
         id: 'GameCanvas',

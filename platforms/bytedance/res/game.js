@@ -17,4 +17,14 @@ if (cc.sys.platform !== cc.sys.WECHAT_GAME_SUB) {
     cc.macro.CLEANUP_IMAGE_CACHE = true;
 }
 
-window.boot();
+if (__globalAdapter.isSubContext) {
+    __globalAdapter.onMessage(data => {
+        if (data.fromEngine && data.event === 'init') {
+            window.boot();
+        }
+    });
+}
+else {
+    window.boot();
+}
+

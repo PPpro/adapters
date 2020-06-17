@@ -17,8 +17,8 @@ cc.view.convertToLocationInView = function (tx, ty, relatedPos, out) {
     var x = this._devicePixelRatio * (tx - relatedPos.left);
     var y = this._devicePixelRatio * (relatedPos.top + relatedPos.height - ty);
     // Move to real viewport area
-    x = (x - viewportInMain.x) * this._viewportRect.width / viewportInMain.width;
-    y = (y - viewportInMain.y) * this._viewportRect.height / viewportInMain.height;
+    x = (x - viewportInMain.x) - (viewportInMain.width-this._viewportRect.width)/2;
+    y = (y - viewportInMain.y) - (viewportInMain.height-this._viewportRect.height)/2;
     if (this._isRotated) {
         result.x = this._viewportRect.width - y;
         result.y = x;

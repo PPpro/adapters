@@ -17,4 +17,7 @@ if (cc.sys.platform !== cc.sys.WECHAT_GAME_SUB) {
     cc.macro.CLEANUP_IMAGE_CACHE = true;
 }
 
-window.boot();
+// boot after sub context component inits
+if (!__globalAdapter.isSubContext) {
+    window.boot();
+}
